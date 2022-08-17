@@ -7,21 +7,21 @@
 package com.cga102g3.web.book.controller;
 
 
+import static com.cga102g3.core.util.CommonUtil.writePojo2Json;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.cga102g3.core.controller.BaseGetAPIServlet;
 import com.cga102g3.core.pojo.ErrMsg;
 import com.cga102g3.web.book.service.BookService;
 import com.cga102g3.web.book.service.impl.BookServiceImpl;
 import com.cga102g3.web.category.service.CategoryService;
 import com.cga102g3.web.category.service.impl.CategoryServiceImpl;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import static com.cga102g3.core.util.CommonUtil.writePojo2Json;
 
 
 @WebServlet(name = "BookApiServlet", urlPatterns = {"/book/api/*"})

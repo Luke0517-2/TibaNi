@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MemService {
 	
-	private MemDAO_interface dao;
+	private MemDAOInterface dao;
 	
 	public MemService() {
 		dao = new MemJDBCDAO();

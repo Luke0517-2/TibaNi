@@ -1,18 +1,18 @@
 package com.cga102g3.web.order.controller;
 
+import static com.cga102g3.core.util.CommonUtil.writePojo2Json;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cga102g3.core.controller.BaseGetAPIServlet;
 import com.cga102g3.core.pojo.ErrMsg;
-import static com.cga102g3.core.util.CommonUtil.*;
 import com.cga102g3.web.order.service.OrderService;
 
 /**
@@ -25,13 +25,8 @@ public class GetOrderAPIServlet extends BaseGetAPIServlet {
 	private OrderService orderService = new OrderService();
 	
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GetOrderAPIServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+    
 
 	/**
 	 * 路由：/order/api/getOrderInfo?OrderID={int}

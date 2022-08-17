@@ -1,10 +1,9 @@
 package com.cga102g3.core.util;
 
-import org.apache.commons.beanutils.BeanUtils;
-
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 /**
  * @Description 請求參數封裝工具

@@ -2,10 +2,8 @@ package com.cga102g3.web.bid_order.controller;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

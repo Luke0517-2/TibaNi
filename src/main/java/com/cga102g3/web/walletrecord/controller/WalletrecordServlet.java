@@ -27,7 +27,7 @@ public class WalletrecordServlet extends HttpServlet {
 		
 		
 		
-		if ("updateMEM".equals(action2)) { // 來自update_MEM_input.jsp的請求
+//		if ("updateMEM".equals(action2)) { // 來自update_MEM_input.jsp的請求
 			
 //			List<String> errorMsgs = new LinkedList<String>();
 //			// Store this set in the request scope, in case we need to
@@ -62,8 +62,8 @@ public class WalletrecordServlet extends HttpServlet {
 //				String url = "/front-end/walletrecord/listAllWalletrecord.jsp";
 //				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listAllWalletrecord.jsp
 //				successView.forward(req, res);
-		}
-		
+//		}
+//		
 		
 		
 		if ("getOne_For_Display".equals(action)) { // 來自select_page.jsp的請求
@@ -86,9 +86,9 @@ public class WalletrecordServlet extends HttpServlet {
 					return;//程式中斷
 				}
 				
-				Integer walletrecord_ID = null;
+				Integer walletrecordID = null;
 				try {
-					walletrecord_ID = Integer.valueOf(str);
+					walletrecordID = Integer.valueOf(str);
 				} catch (Exception e) {
 					errorMsgs.add("員工編號格式不正確");
 				}
@@ -102,7 +102,7 @@ public class WalletrecordServlet extends HttpServlet {
 				
 				/***************************2.開始查詢資料*****************************************/
 				WalletrecordService walletrecordSvc = new WalletrecordService();
-				WalletrecordVO walletrecordVO = walletrecordSvc.getOneWalletrecord(walletrecord_ID);
+				WalletrecordVO walletrecordVO = walletrecordSvc.getOneWalletrecord(walletrecordID);
 				if (walletrecordVO == null) {
 					errorMsgs.add("查無資料");
 				}
@@ -130,11 +130,11 @@ public class WalletrecordServlet extends HttpServlet {
 			req.setAttribute("errorMsgs", errorMsgs);
 			
 				/***************************1.接收請求參數****************************************/
-				Integer wallet_rec_no = Integer.valueOf(req.getParameter("wallet_rec_no"));
+				Integer walletRecNo = Integer.valueOf(req.getParameter("wallet_rec_no"));
 				
 				/***************************2.開始查詢資料****************************************/
 				WalletrecordService walletrecordSvc = new WalletrecordService();
-				WalletrecordVO walletrecordVO = walletrecordSvc.getOneWalletrecord(wallet_rec_no);
+				WalletrecordVO walletrecordVO = walletrecordSvc.getOneWalletrecord(walletRecNo);
 								
 				/***************************3.查詢完成,準備轉交(Send the Success view)************/
 				req.setAttribute("walletrecordVO", walletrecordVO);         // 資料庫取出的walletrecordVO物件,存入req
@@ -152,7 +152,7 @@ public class WalletrecordServlet extends HttpServlet {
 			req.setAttribute("errorMsgs", errorMsgs);
 		
 				/***************************1.接收請求參數 - 輸入格式的錯誤處理**********************/
-Integer wallet_rec_no = Integer.valueOf(req.getParameter("wallet_rec_no").trim());
+Integer walletRecNo = Integer.valueOf(req.getParameter("wallet_rec_no").trim());
 				
 Integer note = Integer.valueOf(req.getParameter("note").trim());	
 //				String enameReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
@@ -187,7 +187,7 @@ req.setAttribute("walletrecordVO", walletrecordVO); // 含有輸入格式錯誤�
 				
 				/***************************2.開始修改資料*****************************************/
 				WalletrecordService walletrecordSvc = new WalletrecordService();
-				walletrecordVO = walletrecordSvc.updateWalletrecord(note, amount, wallet_rec_no);
+				walletrecordVO = walletrecordSvc.updateWalletrecord(note, amount, walletRecNo);
 				
 				/***************************3.修改完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("walletrecordVO", walletrecordVO); // 資料庫update成功後,正確的的walletrecordVO物件,存入req
@@ -205,7 +205,7 @@ req.setAttribute("walletrecordVO", walletrecordVO); // 含有輸入格式錯誤�
 
 				/***********************1.接收請求參數 - 輸入格式的錯誤處理*************************/
 			
-			Integer mbr_ID = Integer.valueOf(req.getParameter("mbr_ID").trim());			
+			Integer mbrID = Integer.valueOf(req.getParameter("mbr_ID").trim());			
 //			Integer mbr_ID = req.getParameter("mbr_ID").trim();
 //			if (mbr_ID == null || mbr_ID.trim().length() == 0) {
 //				errorMsgs.add("會員請勿空白");
@@ -229,7 +229,7 @@ req.setAttribute("walletrecordVO", walletrecordVO); // 含有輸入格式錯誤�
 				
 
 				WalletrecordVO walletrecordVO = new WalletrecordVO();
-				walletrecordVO.setMbr_ID(mbr_ID);
+				walletrecordVO.setMbrID(mbrID);
 				walletrecordVO.setNote(note);
 				walletrecordVO.setAmount(amount);
 
@@ -247,10 +247,10 @@ req.setAttribute("walletrecordVO", walletrecordVO); // 含有輸入格式錯誤�
 				walletrecordVO = walletrecordSvc.addWalletrecord(walletrecordVO);
 				
 				//需update member 的錢
-				walletrecordVO = walletrecordSvc.updateWalletrecord(note, mbr_ID);
+				walletrecordVO = walletrecordSvc.updateWalletrecord(note, mbrID);
 				
 				MemService memSvc = new MemService();
-				MemVO memVO = memSvc.getOneMem(mbr_ID);
+				MemVO memVO = memSvc.getOneMem(mbrID);
 				HttpSession session = req.getSession();
 				session.setAttribute("memVO", memVO);
 				
@@ -269,11 +269,11 @@ req.setAttribute("walletrecordVO", walletrecordVO); // 含有輸入格式錯誤�
 			req.setAttribute("errorMsgs", errorMsgs);
 	
 				/***************************1.接收請求參數***************************************/
-				Integer wallet_rec_no = Integer.valueOf(req.getParameter("wallet_rec_no"));
+				Integer walletRecNo = Integer.valueOf(req.getParameter("wallet_rec_no"));
 				
 				/***************************2.開始刪除資料***************************************/
 				WalletrecordService walletrecordSvc = new WalletrecordService();
-				walletrecordSvc.deleteWalletrecord(wallet_rec_no);
+				walletrecordSvc.deleteWalletrecord(walletRecNo);
 				
 				/***************************3.刪除完成,準備轉交(Send the Success view)***********/								
 				String url = "/walletrecord/listAllWalletrecord.jsp";

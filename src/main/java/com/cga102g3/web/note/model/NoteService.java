@@ -1,11 +1,10 @@
 package com.cga102g3.web.note.model;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 public class NoteService {
 
-	private NoteDAO_interface dao;
+	private NoteDAOInterface dao;
 
 	public NoteService() {
 		//dao = new EmpDAO();
@@ -15,9 +14,9 @@ public class NoteService {
 	public NoteVO addNote(Integer mbr_ID, Integer note_content_type, String note_content) {
 
 		NoteVO noteVO = new NoteVO();
-		noteVO.setMbr_ID(mbr_ID);
-		noteVO.setNote_content_type(note_content_type);
-		noteVO.setNote_content(note_content);
+		noteVO.setMbrID(mbr_ID);
+		noteVO.setNoteContentType(note_content_type);
+		noteVO.setNoteContent(note_content);
 		
 		dao.insert(noteVO);
 
@@ -28,10 +27,10 @@ public class NoteService {
 
 		NoteVO noteVO = new NoteVO();
 
-		noteVO.setMbr_ID(mbr_ID);
-		noteVO.setNote_content_type(note_content_type);
-		noteVO.setNote_content(note_content);
-		noteVO.setNote_ID(note_id);
+		noteVO.setMbrID(mbr_ID);
+		noteVO.setNoteContentType(note_content_type);
+		noteVO.setNoteContent(note_content);
+		noteVO.setNoteID(note_id);
 		dao.update(noteVO);
 
 		return noteVO;

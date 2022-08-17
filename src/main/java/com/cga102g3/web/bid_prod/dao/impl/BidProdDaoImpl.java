@@ -1,17 +1,16 @@
 package com.cga102g3.web.bid_prod.dao.impl;
 
 
-import com.cga102g3.core.util.JDBCUtil;
-import com.cga102g3.web.bid_prod.dao.BidProdDao;
-import com.cga102g3.web.bid_prod.entity.BidProd;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import com.cga102g3.core.util.JDBCUtil;
+import com.cga102g3.web.bid_prod.dao.BidProdDao;
+import com.cga102g3.web.bid_prod.entity.BidProd;
 
 /**
  * @Description 競標商品dao
@@ -445,12 +444,6 @@ public class BidProdDaoImpl implements BidProdDao {
      */
     @Override
 	public List<BidProd> selectByBidProdName(String bookName, Integer page) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        List<BidProd> list = null;
-        final String sql = "";
-
     	return null;
 	}
 
@@ -529,65 +522,5 @@ public class BidProdDaoImpl implements BidProdDao {
         return 0;
     }
 
-    public static void main(String[] args) {
-        BidProdDao bidProdDao = new BidProdDaoImpl();
-        
-        /* Find by Primary Key*/
-//          BidProd bidProd = bidProdDao.selectByPrimaryKey(36);
-//          System.out.println(bidProd);
-
-        /* List All (limit 12 row per page) */
-//        List<BidProd> list = bidProdDao.selectAll();
-//        for (BidProd aBidProd: list) {
-//        	System.out.println(aBidProd);}
-//
-//        System.out.println(list);
-//
-        /* (X) Find by Member */
-//        List<BidProd> list = bidProdDao.selectByMbr(1, 1);
-//        System.out.println(list);
-
-        /* Find by Product State */
-//        List<BidProd> list = bidProdDao.selectByBidProdStat(0, 2);
-//	      for (BidProd aBidProd: list) {
-//	    	System.out.println(aBidProd);
-//	    }
-//        List<BidProd> list = bidProdDao.selectByBidProdStat(1);
-//	      for (BidProd aBidProd: list) {
-//	    	System.out.println(aBidProd);
-//	    }
-//        System.out.println(list);
-
-        
-        /* Insert data into bid_prod table */
-//        BidProd bidProd = new BidProd();
-//        bidProd.setBookID(12);
-//        GregorianCalendar calendar = new GregorianCalendar(2022, Calendar.AUGUST, 15, 9, 0,0);
-//        Timestamp start = new Timestamp(calendar.getTimeInMillis());
-//        calendar.add(Calendar.DATE, 1);
-//        Timestamp end = new Timestamp(calendar.getTimeInMillis());
-//        
-//        bidProd.setBidProdStat(0);
-//        bidProd.setBidStart(start);
-//        bidProd.setBidEnd(end);
-//        bidProdDao.insert(bidProd);
-
-        /* Update data for bid_prod table */ 
-//        BidProd bidProd = new BidProd();
-//        bidProd.setBidID(5);
-//        bidProd.setBookID(10);
-//        
-//        GregorianCalendar calendar = new GregorianCalendar(2022, Calendar.JULY, 15, 9, 0,0);
-//	    Timestamp start = new Timestamp(calendar.getTimeInMillis());
-//	    calendar.add(Calendar.DATE, 30);
-//	    Timestamp end = new Timestamp(calendar.getTimeInMillis());
-//
-//        bidProd.setBidStart(start);
-//        bidProd.setBidEnd(end);
-//        
-//        bidProdDao.update(bidProd);
-
-
-
-    }
+   
 }

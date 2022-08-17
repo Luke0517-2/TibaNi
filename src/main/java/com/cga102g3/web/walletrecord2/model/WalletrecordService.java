@@ -29,7 +29,7 @@ public class WalletrecordService {
 
 		walletrecordVO.setNote(note);
 		walletrecordVO.setAmount(amount);
-		walletrecordVO.setWallet_rec_no(wallet_rec_no);
+		walletrecordVO.setWalletRecNo(wallet_rec_no);
 		
 		dao.update(walletrecordVO);
 
@@ -57,7 +57,7 @@ public class WalletrecordService {
 		WalletrecordVO walletrecordVO = new WalletrecordVO();
 
 		walletrecordVO.setNote(note);
-		walletrecordVO.setMbr_ID(mbr_ID);
+		walletrecordVO.setMbrID(mbr_ID);
 		
 		dao.updateMEM(walletrecordVO);
 

@@ -26,7 +26,7 @@ public class BookDaoImpl implements BookDao {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        int rowCount = 0;  // 引響的資料筆數
+       // int rowCount = 0;  // 引響的資料筆數
         int book_ID = -1;
 
         final String sql =
@@ -40,7 +40,7 @@ public class BookDaoImpl implements BookDao {
             conn = JDBCUtil.getConnection();
             pstmt = conn.prepareStatement(sql, columns);
             setBookInfo(book, pstmt);
-            rowCount = pstmt.executeUpdate();
+            pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
 
             if (rs.next()) {

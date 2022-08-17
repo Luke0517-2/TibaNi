@@ -2,7 +2,6 @@ package com.cga102g3.web.order_Item.entity;
 
 import java.io.Serializable;
 
-import com.cga102g3.web.book.entity.Book;
 import com.cga102g3.web.order.entity.OrderVO;
 
 /**

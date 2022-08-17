@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
 
-public interface ProdSaleDAO_interface {
+public interface ProdSaleDAOInterface {
 	
 
     public void insert(ProdSaleVO prodsaleVO);

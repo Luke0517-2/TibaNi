@@ -1,17 +1,21 @@
 package com.cga102g3.web.review.controller;
 
-import java.io.*;
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
-import javax.servlet.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.cga102g3.web.prod.entity.ProdVO;
 import com.cga102g3.web.prod.service.ProdService;
-import com.cga102g3.web.review.model.*;
-import com.google.gson.Gson;
+import com.cga102g3.web.review.model.BookReviewService;
+import com.cga102g3.web.review.model.BookReviewVO;
 
 @WebServlet("/front-end/review/review.do")
 public class ReviewServlet extends HttpServlet{

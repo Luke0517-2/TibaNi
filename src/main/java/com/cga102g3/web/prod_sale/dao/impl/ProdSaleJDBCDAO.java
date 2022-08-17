@@ -1,14 +1,20 @@
 package com.cga102g3.web.prod_sale.dao.impl;
 
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.cga102g3.core.util.JDBCUtil;
-import com.cga102g3.web.prod_sale.dao.ProdSaleDAO_interface;
+import com.cga102g3.web.prod_sale.dao.ProdSaleDAOInterface;
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
 
-import java.sql.*;
-
-public class ProdSaleJDBCDAO implements ProdSaleDAO_interface{
+public class ProdSaleJDBCDAO implements ProdSaleDAOInterface{
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";

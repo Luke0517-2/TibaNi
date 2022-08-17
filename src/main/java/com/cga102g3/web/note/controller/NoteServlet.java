@@ -1,14 +1,17 @@
 package com.cga102g3.web.note.controller;
 
-import java.io.*;
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
-import javax.servlet.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.cga102g3.web.note.model.*;
 import com.cga102g3.web.note.model.NoteService;
 import com.cga102g3.web.note.model.NoteVO;
 
@@ -113,16 +116,16 @@ if ("update".equals(action)) { // 來自update_note_input.jsp的請求
 			req.setAttribute("errorMsgs", errorMsgs);
 		
 				/***************************1.接收請求參數 - 輸入格式的錯誤處理**********************/
-Integer note_ID = Integer.valueOf(req.getParameter("note_ID").trim());
+Integer noteID = Integer.valueOf(req.getParameter("note_ID").trim());
 
-Integer mbr_ID = Integer.valueOf(req.getParameter("mbr_ID").trim());
+Integer mbrID = Integer.valueOf(req.getParameter("mbr_ID").trim());
 
 //if (mbr_ID == null || mbr_ID.trim().length() == 0) {
 //	errorMsgs.add("解答 請勿空白");
 //}	
 
 
-Integer note_content_type = Integer.valueOf(req.getParameter("note_content_type").trim());
+Integer noteContentType = Integer.valueOf(req.getParameter("note_content_type").trim());
 
 //Integer note_content_type = req.getParameter("note_content_type");
 //				String enameReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
@@ -132,17 +135,17 @@ Integer note_content_type = Integer.valueOf(req.getParameter("note_content_type"
 //					errorMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
 //	            }
 //				
-String note_content = req.getParameter("note_content").trim();
+String noteContent = req.getParameter("note_content").trim();
 //				if (note_content == null || note_content.trim().length() == 0) {
 //					errorMsgs.add("解答 請勿空白");
 //				}	
 				
 				NoteVO noteVO = new NoteVO();
 				
-				noteVO.setMbr_ID(mbr_ID);
-				noteVO.setNote_time(new Timestamp(System.currentTimeMillis()));	
-				noteVO.setNote_content_type(note_content_type);
-				noteVO.setNote_content(note_content);
+				noteVO.setMbrID(mbrID);
+				noteVO.setNoteTime(new Timestamp(System.currentTimeMillis()));	
+				noteVO.setNoteContentType(noteContentType);
+				noteVO.setNoteContent(noteContent);
 
 				// Send the use back to the form, if there were errors
 				if (!errorMsgs.isEmpty()) {
@@ -155,7 +158,7 @@ req.setAttribute("noteVO", noteVO); // 含有輸入格式錯誤的fanoteVO,也�
 				
 				/***************************2.開始修改資料*****************************************/
 				NoteService noteSvc = new NoteService();
-				noteVO = noteSvc.updateNote(mbr_ID,note_content_type, note_content, note_ID);
+				noteVO = noteSvc.updateNote(mbrID,noteContentType, noteContent, noteID);
 				
 				/***************************3.修改完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("noteVO", noteVO); // 資料庫update成功後,正確的的noteVO物件,存入req
@@ -163,6 +166,8 @@ req.setAttribute("noteVO", noteVO); // 含有輸入格式錯誤的fanoteVO,也�
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listOneNote.jsp
 				successView.forward(req, res);
 		}
+
+
 
         if ("insert".equals(action)) { // 來自addNote.jsp的請求  
 			
@@ -173,28 +178,28 @@ req.setAttribute("noteVO", noteVO); // 含有輸入格式錯誤的fanoteVO,也�
 
 				/***********************1.接收請求參數 - 輸入格式的錯誤處理*************************/
 			
-Integer mbr_ID = Integer.valueOf(req.getParameter("mbr_ID"));
+Integer mbrID = Integer.valueOf(req.getParameter("mbr_ID"));
 
-Integer note_content_type = Integer.valueOf(req.getParameter("note_content_type"));
+Integer noteContentType = Integer.valueOf(req.getParameter("note_content_type"));
 
 //				String enameReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
-				if (note_content_type == null) {
+				if (noteContentType == null) {
 					errorMsgs.add("通知類型 請勿空白");
 //				} else if(!note_content_type.trim().matches(enameReg)) { //以下練習正則(規)表示式(regular-expression)
 //					errorMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
 	            }
 				
-String note_content = req.getParameter("note_content").trim();
-				if (note_content == null || note_content.trim().length() == 0) {
+String noteContent = req.getParameter("note_content").trim();
+				if (noteContent == null || noteContent.trim().length() == 0) {
 					errorMsgs.add("留言內容 請勿空白");
 				}
 				
 				
 
 				NoteVO noteVO = new NoteVO();
-				noteVO.setMbr_ID(mbr_ID);
-				noteVO.setNote_content_type(note_content_type);
-				noteVO.setNote_content(note_content);
+				noteVO.setMbrID(mbrID);
+				noteVO.setNoteContentType(noteContentType);
+				noteVO.setNoteContent(noteContent);
 				
 
 				// Send the use back to the form, if there were errors
@@ -208,7 +213,7 @@ req.setAttribute("noteVO", noteVO); // 含有輸入格式錯誤的noteVO物件,�
 				
 				/***************************2.開始新增資料***************************************/
 				NoteService noteSvc = new NoteService();
-				noteSvc.addNote(mbr_ID, note_content_type, note_content);
+				noteSvc.addNote(mbrID, noteContentType, noteContent);
 				
 				/***************************3.新增完成,準備轉交(Send the Success view)***********/
 				String url = "/front-end/note/listAllNote.jsp";

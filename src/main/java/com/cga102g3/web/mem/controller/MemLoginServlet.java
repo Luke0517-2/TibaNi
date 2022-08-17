@@ -23,10 +23,8 @@ public class MemLoginServlet extends HttpServlet{
 
 	
 	  protected boolean allowUser(String account, String password, String acc, String psw) {
-	    if (acc.equals(account) && psw.equals(password))
-	      return true;
-	    else
-	      return false;
+	    return acc.equals(account) && psw.equals(password);
+	     
 	  }
 	  
 	  public void doPost(HttpServletRequest req, HttpServletResponse res)

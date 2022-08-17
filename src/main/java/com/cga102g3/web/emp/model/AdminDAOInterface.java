@@ -4,7 +4,7 @@ import java.util.List;
 
 
 
-public interface AdminDAO_interface {
+public interface AdminDAOInterface {
 	public void insert(AdminVO adminVO);
     public void update(AdminVO adminVO);
     public void delete(Integer adminID);

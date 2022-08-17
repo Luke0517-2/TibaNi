@@ -1,7 +1,6 @@
 package com.cga102g3.web.mem.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

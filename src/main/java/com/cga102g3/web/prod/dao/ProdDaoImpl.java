@@ -167,6 +167,7 @@ public class ProdDaoImpl implements ProdDao{
     public ProdVO findOneProd(int prodID) {
         Connection con = null;
         PreparedStatement ps = null;
+        ProdVO pb = null;
 
         try{
             Class.forName(driver);
@@ -176,8 +177,8 @@ public class ProdDaoImpl implements ProdDao{
             ps.setInt(1, prodID);
             ResultSet rs = ps.executeQuery();
 
-            rs.next();
-            ProdVO pb = new ProdVO();
+            if(rs.next()) {
+            pb = new ProdVO();
             Book book = new Book();
             book.setISBN(rs.getString("isbn"));
             book.setAuthor(rs.getString("author"));
@@ -193,6 +194,7 @@ public class ProdDaoImpl implements ProdDao{
             pb.setBookID(rs.getInt("book_id"));
             pb.setProdID(rs.getInt("prod_id"));
             pb.setStatus(rs.getInt("status"));
+            }
             return pb;
 
         }catch(ClassNotFoundException e) {

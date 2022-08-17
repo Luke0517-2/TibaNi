@@ -179,7 +179,7 @@ public class BidOrderDaoImpl implements BidOrderDao {
 
     @Override
     public int insert(Connection conn, BidOrder bidOrder) throws SQLException {
-        int res = 0;
+//        int res = 0;
         final String sql =
                 "insert into bid_order(bid_ID, mbr_ID, bid_price) \n" +
                 "VALUES (?, ?, ?); ";

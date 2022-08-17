@@ -6,7 +6,7 @@ import com.cga102g3.web.category.entity.Category;
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
 import com.cga102g3.web.sale.entity.SaleVO;
 
-public interface SaleDAO_interface {
+public interface SaleDAOInterface {
 
     public void insert(SaleVO saleVO);
     public void update(SaleVO saleVO);

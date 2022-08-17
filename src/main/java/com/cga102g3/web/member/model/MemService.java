@@ -3,11 +3,9 @@ package com.cga102g3.web.member.model;
 import java.sql.Date;
 import java.util.List;
 
-import com.cga102g3.web.review.model.BookReviewVO;
-
 public class MemService {
 	
-	private MemDAO_interface dao;
+	private MemDAOInterface dao;
 	
 	public MemService() {
 		dao = new MemJDBCDAO();

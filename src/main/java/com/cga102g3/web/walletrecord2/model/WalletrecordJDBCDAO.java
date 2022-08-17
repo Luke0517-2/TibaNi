@@ -41,7 +41,7 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			pstmt = con.prepareStatement(INSERT_STMT);
 
 			
-			pstmt.setInt(1, walletrecordVO.getMbr_ID());
+			pstmt.setInt(1, walletrecordVO.getMbrID());
 			pstmt.setInt(2, walletrecordVO.getNote());
 			pstmt.setInt(3, walletrecordVO.getAmount());
 
@@ -93,7 +93,7 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			pstmt.setInt(1, walletrecordVO.getNote());
 			pstmt.setInt(2, walletrecordVO.getAmount());
 		//	pstmt.setTimestamp(4, walletrecordVO.getRec_time());
-			pstmt.setInt(3, walletrecordVO.getWallet_rec_no()); //�Ĥ@��PK
+			pstmt.setInt(3, walletrecordVO.getWalletRecNo()); //�Ĥ@��PK
 
 			pstmt.executeUpdate();
 
@@ -190,11 +190,11 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			while (rs.next()) {
 				// walletrecordVo �]�٬� Domain objects
 				walletrecordVO = new WalletrecordVO();
-				walletrecordVO.setWallet_rec_no(rs.getInt("Wallet_rec_no"));
-				walletrecordVO.setMbr_ID(rs.getInt("Mbr_ID"));
+				walletrecordVO.setWalletRecNo(rs.getInt("Wallet_rec_no"));
+				walletrecordVO.setMbrID(rs.getInt("Mbr_ID"));
 				walletrecordVO.setNote(rs.getInt("Note"));
 				walletrecordVO.setAmount(rs.getInt("Amount"));
-				walletrecordVO.setRec_time(rs.getTimestamp("Rec_time"));
+				walletrecordVO.setRecTime(rs.getTimestamp("Rec_time"));
 				list.add(walletrecordVO);
 			}
 
@@ -255,11 +255,11 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			while (rs.next()) {
 				// walletrecordVo �]�٬� Domain objects
 				walletrecordVO = new WalletrecordVO();
-				walletrecordVO.setWallet_rec_no(rs.getInt("Wallet_rec_no"));
-				walletrecordVO.setMbr_ID(rs.getInt("Mbr_ID"));
+				walletrecordVO.setWalletRecNo(rs.getInt("Wallet_rec_no"));
+				walletrecordVO.setMbrID(rs.getInt("Mbr_ID"));
 				walletrecordVO.setNote(rs.getInt("Note"));
 				walletrecordVO.setAmount(rs.getInt("Amount"));
-				walletrecordVO.setRec_time(rs.getTimestamp("Rec_time"));
+				walletrecordVO.setRecTime(rs.getTimestamp("Rec_time"));
 			}
 
 			// Handle any driver errors
@@ -317,11 +317,11 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			while (rs.next()) {
 				// walletrecordVO �]�٬� Domain objects
 				walletrecordVO = new WalletrecordVO();
-				walletrecordVO.setWallet_rec_no(rs.getInt("Wallet_rec_no"));
-				walletrecordVO.setMbr_ID(rs.getInt("Mbr_ID"));
+				walletrecordVO.setWalletRecNo(rs.getInt("Wallet_rec_no"));
+				walletrecordVO.setMbrID(rs.getInt("Mbr_ID"));
 				walletrecordVO.setNote(rs.getInt("Note"));
 				walletrecordVO.setAmount(rs.getInt("Amount"));
-				walletrecordVO.setRec_time(rs.getTimestamp("Rec_time"));
+				walletrecordVO.setRecTime(rs.getTimestamp("Rec_time"));
 				list.add(walletrecordVO); // Store the row in the list
 			}
 
@@ -373,7 +373,7 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 			pstmt = con.prepareStatement(UPDATE_MBR);
 		
 			pstmt.setInt(1, walletrecordVO.getNote());
-			pstmt.setInt(2, walletrecordVO.getMbr_ID());
+			pstmt.setInt(2, walletrecordVO.getMbrID());
 
 			pstmt.executeUpdate();
 
@@ -405,78 +405,5 @@ public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
 
 	}
 	
-	public static void main(String[] args) {
-
-		WalletrecordJDBCDAO dao = new WalletrecordJDBCDAO();
-
-		// �s�W
-//		WalletrecordVO walletrecordVO1 = new WalletrecordVO();
-//		walletrecordVO1.setMbr_ID(5);
-//		walletrecordVO1.setNote(3);
-//		walletrecordVO1.setAmount(999);
-//		dao.insert(walletrecordVO1);
-
-		// update
-//		WalletrecordVO walletrecordVO2 = new WalletrecordVO();
-		
-//		walletrecordVO2.setWallet_rec_no(6);
-//		walletrecordVO2.setNote(3);
-//		walletrecordVO2.setAmount(333);
-//
-//		dao.update(walletrecordVO2);
-
-		// �R��
-//		dao.delete(5);
-
-		// ��d
-//		WalletrecordVO walletrecordVO3 = dao.findByPrimaryKey(6);
-//		System.out.print(walletrecordVO3.getWallet_rec_no() + ",");
-//		System.out.print(walletrecordVO3.getMbr_ID() + ",");
-//		System.out.print(walletrecordVO3.getNote() + ",");
-//		System.out.print(walletrecordVO3.getAmount() + ",");
-//		System.out.print(walletrecordVO3.getRec_time() + ",");
-//		
-//		System.out.println("---------------------");
-
-		//findByPrimaryKey2 單查某會員錢包紀錄
-//		WalletrecordVO walletrecordVO3 = dao.findByPrimaryKey2(5);
-//		System.out.print(walletrecordVO3.getMbr_ID() + ",");
-//		System.out.print(walletrecordVO3.getWallet_rec_no() + ",");		
-//		System.out.print(walletrecordVO3.getNote() + ",");
-//		System.out.print(walletrecordVO3.getAmount() + ",");
-//		System.out.print(walletrecordVO3.getRec_time() + ",");
-//		
-//		System.out.println("---------------------");
-		
-		
-
-		// ���d
-//		List<WalletrecordVO> list = dao.getAll();
-//		for (WalletrecordVO aWalletrecord : list) {
-//			System.out.print(aWalletrecord.getWallet_rec_no() + ",");
-//			System.out.print(aWalletrecord.getMbr_ID() + ",");
-//			System.out.print(aWalletrecord.getNote() + ",");
-//			System.out.print(aWalletrecord.getAmount() + ",");
-//			System.out.print(aWalletrecord.getRec_time() + ",");
-//			System.out.println();
-//		}
-//		List<WalletrecordVO> list = dao.findByMemberId(1);
-//		System.out.println(list);
-//		for (WalletrecordVO aWalletrecord : list) {
-//			System.out.print(aWalletrecord.getWallet_rec_no() + ",");
-//			System.out.print(aWalletrecord.getMbr_ID() + ",");
-//			System.out.print(aWalletrecord.getNote() + ",");
-//			System.out.print(aWalletrecord.getAmount() + ",");
-//			System.out.print(aWalletrecord.getRec_time() + ",");
-//			System.out.println();
-//		}
-		
-		//updateMBR
-//		WalletrecordVO walletrecordVO3 = new WalletrecordVO();
-//
-//		walletrecordVO3.setNote(0);
-//		walletrecordVO3.setMbr_ID(7);
-//
-//		dao.updateMEM(walletrecordVO3);
-	}
+	
 }

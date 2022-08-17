@@ -42,7 +42,7 @@ public class BookGetApiServlet extends BaseGetAPIServlet {
         String ISBN = request.getParameter("ISBN");
 //        response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=UTF-8");
-        PrintWriter out = response.getWriter();
+//        PrintWriter out = response.getWriter();
         if (ISBN == null) {
             ErrMsg errMsg = new ErrMsg();
             errMsg.setMsg("未傳輸入isbn參數");

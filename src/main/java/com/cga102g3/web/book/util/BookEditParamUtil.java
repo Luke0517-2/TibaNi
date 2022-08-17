@@ -1,15 +1,14 @@
 package com.cga102g3.web.book.util;
 
 
-import com.cga102g3.web.book.entity.Book;
-import com.cga102g3.web.book.service.BookService;
-import com.cga102g3.web.book.service.impl.BookServiceImpl;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
+
+import com.cga102g3.web.book.entity.Book;
+import com.cga102g3.web.book.service.BookService;
+import com.cga102g3.web.book.service.impl.BookServiceImpl;
 
 /**
  * @Description
@@ -39,12 +38,9 @@ public class BookEditParamUtil {
         }
 
         // ISBN有效時再查詢
-        if (ISBNStat) {
-            if (service.findEditionsByISBN(
-                            book.getISBN())
-                    .contains(book.getEdition())) {
-                errMsgs.add("版次重複");
-            }
+        if (ISBNStat && service.findEditionsByISBN(book.getISBN())
+        					   .contains(book.getEdition())) {       
+                errMsgs.add("版次重複");        
         }
 
         if (book.getAuthor() == null || "".equals(book.getAuthor())){

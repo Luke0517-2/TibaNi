@@ -8,13 +8,13 @@ import java.util.Map;
 import com.cga102g3.web.category.entity.Category;
 import com.cga102g3.web.prod.service.ProdService;
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
-import com.cga102g3.web.sale.dao.SaleDAO_interface;
+import com.cga102g3.web.sale.dao.SaleDAOInterface;
 import com.cga102g3.web.sale.dao.impl.SaleJDBCDAO;
 import com.cga102g3.web.sale.entity.SaleVO;
 
 public class SaleService {
 
-	private SaleDAO_interface dao;
+	private SaleDAOInterface dao;
 
 	public SaleService() {
 		dao = new SaleJDBCDAO();

@@ -2,7 +2,7 @@ package com.cga102g3.web.review.model;
 
 import java.util.List;
 
-public interface BookReviewDAO_interface {
+public interface BookReviewDAOInterface {
 
 	public void insert(BookReviewVO bookreviewVO);
 

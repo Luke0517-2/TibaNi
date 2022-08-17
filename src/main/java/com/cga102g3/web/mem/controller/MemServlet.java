@@ -1,8 +1,6 @@
 package com.cga102g3.web.mem.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,10 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
-import com.cga102g3.web.emp.model.AdminService;
-import com.cga102g3.web.emp.model.AdminVO;
 import com.cga102g3.web.mem.model.MailService;
 import com.cga102g3.web.mem.model.MemService;
 import com.cga102g3.web.mem.model.MemVO;

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BookReviewService {
 
-	private BookReviewDAO_interface dao;
+	private BookReviewDAOInterface dao;
 
 	public BookReviewService() {
 		dao = new BookReviewJDBCDAO();

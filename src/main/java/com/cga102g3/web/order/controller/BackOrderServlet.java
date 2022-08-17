@@ -1,20 +1,17 @@
 package com.cga102g3.web.order.controller;
 
-import java.io.*;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
 
-import javax.servlet.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.cga102g3.web.order.entity.OrderVO;
 import com.cga102g3.web.order.service.OrderService;
-import com.cga102g3.web.order_Item.service.OrderItemService;
 
 @MultipartConfig(fileSizeThreshold = 1, maxFileSize = 15*1024*1024, maxRequestSize = 50*1024*1024)
 @WebServlet("/back-end/order/order.do")

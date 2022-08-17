@@ -1,11 +1,10 @@
 package com.cga102g3.web.bid_activ.service;
 
-import com.cga102g3.web.bid_activ.entity.BidActiv;
-import com.cga102g3.web.bid_prod.entity.BidProd;
-
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
+
+import com.cga102g3.web.bid_activ.entity.BidActiv;
+import com.cga102g3.web.bid_prod.entity.BidProd;
 
 /**
  * @Description

@@ -1,9 +1,6 @@
 package com.cga102g3.web.emp.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,15 +11,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import com.cga102g3.web.emp.model.AdminAuthService;
 import com.cga102g3.web.emp.model.AdminAuthVO;
 import com.cga102g3.web.emp.model.AdminService;
 import com.cga102g3.web.emp.model.AdminVO;
-import com.cga102g3.web.emp.model.AuthDAO_interface;
-import com.cga102g3.web.mem.model.MemService;
-import com.cga102g3.web.mem.model.MemVO;
+
 
 @WebServlet("/back-end/emp/emp.do")
 @MultipartConfig
@@ -319,7 +313,7 @@ public class AdminServlet extends HttpServlet {
 			for(int i=0;i < auth.length; i++) {
 				adminAuthSvc.insert(adminID, Integer.valueOf(auth[i]));
 			}
-			List <AdminAuthVO> adminAuthVO = adminAuthSvc.getAdminAuth(adminID);
+//			List <AdminAuthVO> adminAuthVO = adminAuthSvc.getAdminAuth(adminID);
 			
 			/*************************** 3.�ק粒��,�ǳ����(Send the Success view) ***********/
 			req.setAttribute("adminVO", adminVO);

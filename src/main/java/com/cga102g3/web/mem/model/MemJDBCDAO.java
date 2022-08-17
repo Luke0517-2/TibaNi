@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-public class MemJDBCDAO implements MemDAO_interface {
+public class MemJDBCDAO implements MemDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";
@@ -477,80 +477,5 @@ public class MemJDBCDAO implements MemDAO_interface {
 	        return memVO08;		 
 	 }
 	
-	
 
-	public static void main(String[] args) {
-		MemJDBCDAO dao = new MemJDBCDAO();
-
-		// 新建
-//	MemVO memVO1 = new MemVO();
-//	memVO1.setMbrAccount("wwwwwww");
-//	memVO1.setMbrPassword("123456");
-//	memVO1.setMbrStatus(2);
-//	memVO1.setMbrName("�d�ç�");
-//	memVO1.setMbrGender(0);	
-//	memVO1.setMbrMobile("0999999999");
-//	memVO1.setMbrAddr("�x�_���j�w��");
-//	memVO1.setMbrEmail("WU@yahoo.com");
-//	memVO1.setMbrBirth(java.sql.Date.valueOf("1990-01-01"));
-//	memVO1.setTcoinBal(5999);
-//	dao.insert(memVO1);
-
-		// 修改
-
-//		MemVO memVO2 = new MemVO();
-//		memVO2.setMbrName("�d�ç�2");
-//		memVO2.setMbrMobile("0933333333");
-//		memVO2.setMbrAddr("�x�_���ק��");
-//		memVO2.setMbrEmail("test@yahoo.com");
-//		memVO2.setMbrBirth(java.sql.Date.valueOf("1900-01-01"));
-//		memVO2.setMbrID(6);
-//		dao.update(memVO2);
-
-//	// 刪除
-
-//	dao.delete(6);
-
-		// findPrimaryKey
-//	MemVO memVO3 = dao.findByPrimaryKey(1);
-//	System.out.println("Mmeber_id: " + memVO3.getMbrID() + ",");
-//	System.out.println("Member_account: " + memVO3.getMbrAccount() + ",");
-//	System.out.println("Member_password: " + memVO3.getMbrPassword() + ",");
-//	System.out.println("Member_status: " + memVO3.getMbrStatus() + ",");
-//	System.out.println("Member_name: " + memVO3.getMbrName() + ",");
-//	System.out.println("Member_gender: " + memVO3.getMbrGender() + ",");
-//	System.out.println("Member_mobile: " + memVO3.getMbrMobile()+ ",");
-//	System.out.println("Member_addr: " + memVO3.getMbrAddr()+ ",");
-//	System.out.println("Member_email: " + memVO3.getMbrEmail()+ ",");
-//	System.out.println("Member_birth: " + memVO3.getMbrBirth()+ ",");
-//	System.out.println("Member_joinTime: " + memVO3.getMbrJointime()+ ",");
-//	System.out.println("Member_Tcoin: " + memVO3.getTcoinBal()+ ",");
-//	System.out.println("---------------------");
-
-		
-//從mail撈出ID		
-//		MemVO memVO8 = new MemVO();
-//		memVO8.setMbrEmail("u9800061@gmail.com");
-//		MemVO memVO=  dao.signupStatus(memVO8);
-//		System.out.println("Mmeber_id: " + memVO.getMbrID() + ",");
-		
-		
-		// list����
-//		List<MemVO> list = dao.getAll();
-//		for (MemVO aEmp : list) {
-//			System.out.println("Mmeber_id: " + aEmp.getMbrID() + ",");
-//			System.out.println("Member_account: " + aEmp.getMbrAccount() + ",");
-//			System.out.println("Member_password: " + aEmp.getMbrPassword() + ",");
-//			System.out.println("Member_status: " + aEmp.getMbrStatus() + ",");
-//			System.out.println("Member_name: " + aEmp.getMbrName() + ",");
-//			System.out.println("Member_gender: " + aEmp.getMbrGender() + ",");
-//			System.out.println("Member_mobile: " + aEmp.getMbrMobile() + ",");
-//			System.out.println("Member_addr: " + aEmp.getMbrAddr() + ",");
-//			System.out.println("Member_email: " + aEmp.getMbrEmail() + ",");
-//			System.out.println("Member_birth: " + aEmp.getMbrBirth() + ",");
-//			System.out.println("Member_joinTime: " + aEmp.getMbrJointime() + ",");
-//			System.out.println("Member_Tcoin: " + aEmp.getTcoinBal() + ",");
-//			System.out.println("---------------------");
-//		}
-	}
 }

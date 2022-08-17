@@ -1,15 +1,14 @@
 package com.cga102g3.web.bid_activ.dao.impl;
 
-import com.cga102g3.core.util.JDBCUtil;
-import com.cga102g3.web.bid_activ.dao.MemberDao;
-import com.cga102g3.web.bid_activ.dao.WalletRecDao;
-import com.cga102g3.web.bid_activ.entity.Member;
-import com.cga102g3.web.bid_order.entity.BidOrder;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.cga102g3.core.util.JDBCUtil;
+import com.cga102g3.web.bid_activ.dao.MemberDao;
+import com.cga102g3.web.bid_activ.dao.WalletRecDao;
+import com.cga102g3.web.bid_activ.entity.Member;
 
 /**
  * @Description
@@ -18,7 +17,7 @@ import java.sql.SQLException;
  * @Date 2022-06-25 下午 02:17
  */
 public class MemberDaoImpl implements MemberDao {
-    private WalletRecDao walletRecDao = new WalletRecDaoImpl();
+//    private WalletRecDao walletRecDao = new WalletRecDaoImpl();
 
     @Override
     public Member selectByIDWithTCoinBal(Integer mbrID) {

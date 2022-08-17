@@ -18,10 +18,7 @@ import java.util.Map;
  * @date: 2022/6/24
  **/
 public class OrderItemDaoImpl implements OrderItemDao{
-    @Override
-    public void insert(OrderItemVO orderItemVO) {
-
-    }
+   
 
     @Override
     public List<OrderItemVO> getAll(Integer orderID) {

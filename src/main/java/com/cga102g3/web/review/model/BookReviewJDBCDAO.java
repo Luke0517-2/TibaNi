@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookReviewJDBCDAO implements BookReviewDAO_interface {
+public class BookReviewJDBCDAO implements BookReviewDAOInterface {
 
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";

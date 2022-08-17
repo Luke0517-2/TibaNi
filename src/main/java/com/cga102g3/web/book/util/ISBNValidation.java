@@ -18,11 +18,12 @@ public class ISBNValidation {
     private static int getSum(long isbn) {
         int count = 0;
         int sum = 0;
+        long newIsbn = 0;
         do {
             sum += count % 2 == 0 ? isbn % 10 : 3 * (isbn % 10);
             count++;
-            isbn /= 10;
-        } while (isbn > 0);
+            newIsbn = isbn / 10;
+        } while (newIsbn > 0);
         return sum;
     }
 

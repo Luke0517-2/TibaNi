@@ -1,25 +1,23 @@
 package com.cga102g3.web.walletrecord.model;
-import java.sql.Clob;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class WalletrecordVO implements java.io.Serializable{
-	private Integer wallet_rec_no;
-	private Integer mbr_ID;
+	private Integer walletRecNo;
+	private Integer mbrID;
 	private Integer note;
 	private Integer amount;
-	private Timestamp rec_time;
-	public Integer getWallet_rec_no() {
-		return wallet_rec_no;
+	private Timestamp recTime;
+	public Integer getWalletRecNo() {
+		return walletRecNo;
 	}
-	public void setWallet_rec_no(Integer wallet_rec_no) {
-		this.wallet_rec_no = wallet_rec_no;
+	public void setWalletRecNo(Integer walletRecNo) {
+		this.walletRecNo = walletRecNo;
 	}
-	public Integer getMbr_ID() {
-		return mbr_ID;
+	public Integer getMbrID() {
+		return mbrID;
 	}
-	public void setMbr_ID(Integer mbr_ID) {
-		this.mbr_ID = mbr_ID;
+	public void setMbrID(Integer mbrID) {
+		this.mbrID = mbrID;
 	}
 	public Integer getNote() {
 		return note;
@@ -33,13 +31,11 @@ public class WalletrecordVO implements java.io.Serializable{
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	public Timestamp getRec_time() {
-		return rec_time;
+	public Timestamp getRecTime() {
+		return recTime;
 	}
-	public void setRec_time(Timestamp rec_time) {
-		this.rec_time = rec_time;
+	public void setRecTime(Timestamp recTime) {
+		this.recTime = recTime;
 	}
-	
-
-	
+		
 }

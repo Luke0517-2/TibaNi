@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FaqService {
 
-	private FaqDAO_interface dao;
+	private FaqDAOInterface dao;
 
 	public FaqService() {
 		//dao = new EmpDAO();

@@ -4,26 +4,23 @@ package com.cga102g3.web.sale.controller; /**
  * @date: 2022/6/28
  **/
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.cga102g3.web.category.entity.Category;
-import com.cga102g3.web.category.service.impl.CategoryServiceImpl;
-import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
 import com.cga102g3.web.prod_sale.service.ProdSaleService;
 import com.cga102g3.web.sale.entity.SaleVO;
 import com.cga102g3.web.sale.service.SaleService;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet(name = "SaleServlet", value = "/SaleServlet.do")
 public class SaleServlet extends HttpServlet {
@@ -40,7 +37,7 @@ public class SaleServlet extends HttpServlet {
         //=====================查詢單一saleID========================
         if ("getOne".equals(action)){
             String saleID = request.getParameter("saleID");
-            if (saleID != null || saleID.trim().length() != 0){
+            if (saleID != null && saleID.trim().length() != 0){
                 SaleService svc = new SaleService();
                 SaleVO saleVO = svc.findByPrimaryKey(Integer.valueOf(saleID));
                 Gson gson = new Gson();
@@ -89,7 +86,7 @@ public class SaleServlet extends HttpServlet {
             boolean ans ;
             String start = request.getParameter("saleStart");
             String end = request.getParameter("saleEnd");
-            Gson gson = new Gson();
+//            Gson gson = new Gson();
             if (start != null && end != null) {
                 Date saleStart = Date.valueOf(start);
                 Date saleEnd = Date.valueOf(end);
@@ -120,8 +117,8 @@ public class SaleServlet extends HttpServlet {
             if ("judge2".equals(action)) {
                 String saleStart = request.getParameter("saleStart");
                 String saleEnd = request.getParameter("saleEnd");
-                if(saleStart != null && saleStart.trim().length() != 0){
-                    if (saleEnd != null && saleEnd.trim().length() != 0){
+                if(saleStart != null && saleStart.trim().length() != 0 &&saleEnd != null && saleEnd.trim().length() != 0){
+                    
                         Date start = Date.valueOf(saleStart);
                         Date end = Date.valueOf(saleEnd);
                         SaleService svc = new SaleService();
@@ -129,7 +126,7 @@ public class SaleServlet extends HttpServlet {
                         response.setContentType("text/html;charset=UTF-8");
                         PrintWriter out = response.getWriter();
                         out.print(ans);
-                    }
+                    
                 }
                 return;
             }

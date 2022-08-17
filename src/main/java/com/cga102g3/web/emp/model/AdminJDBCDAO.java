@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AdminJDBCDAO implements AdminDAO_interface {
+public class AdminJDBCDAO implements AdminDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";

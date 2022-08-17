@@ -1,6 +1,23 @@
 package com.cga102g3.web.bid_activ.web_socket;
 
-import com.cga102g3.web.bid_activ.dao.BidActivDao;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpSession;
+import javax.websocket.CloseReason;
+import javax.websocket.EndpointConfig;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.PathParam;
+import javax.websocket.server.ServerEndpoint;
+
 import com.cga102g3.web.bid_activ.entity.BidActiv;
 import com.cga102g3.web.bid_activ.entity.BidActivityStat;
 import com.cga102g3.web.bid_activ.entity.BidMsg4WebSocket;
@@ -9,14 +26,6 @@ import com.cga102g3.web.bid_activ.service.BidGameService;
 import com.cga102g3.web.bid_activ.service.impl.BidGameServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
-import javax.websocket.*;
-import javax.websocket.server.PathParam;
-import javax.websocket.server.ServerEndpoint;
-import java.io.IOException;
-import java.util.*;
 
 /**
  * @Description
@@ -60,7 +69,7 @@ public class BidActivitiesWebSocket {
         // 後端收資料時執行，相當於servlet中的service
         // 取得HttpSession物件
         HttpSession httpSession = (HttpSession) config.getUserProperties().get("httpSession");
-        ServletContext servletContext = httpSession.getServletContext();
+//        ServletContext servletContext = httpSession.getServletContext();
 
         Integer mbrID = (Integer) httpSession.getAttribute("mbrID");
         // 獲得前端訊息

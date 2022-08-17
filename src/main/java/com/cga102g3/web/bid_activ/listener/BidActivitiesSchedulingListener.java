@@ -6,20 +6,20 @@ package com.cga102g3.web.bid_activ.listener;
  * @Date 2022-06-23 下午 04:42
  */
 
-import com.cga102g3.web.bid_activ.service.BidActivitiesSchedulingService;
-import com.cga102g3.web.bid_activ.service.impl.BidActivitiesSchedulingServiceImpl;
-
-import javax.servlet.*;
-import javax.servlet.annotation.*;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.cga102g3.web.bid_activ.service.BidActivitiesSchedulingService;
+import com.cga102g3.web.bid_activ.service.impl.BidActivitiesSchedulingServiceImpl;
+
 public class BidActivitiesSchedulingListener implements ServletContextListener {
     private Timer timer;
-    public BidActivitiesSchedulingListener() {
-    }
+   
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -32,7 +32,7 @@ public class BidActivitiesSchedulingListener implements ServletContextListener {
             @Override
             public void run() {
                 // 避免排程器補做事情
-                if (!(scheduledExecutionTime() < System.currentTimeMillis())) {
+                if (scheduledExecutionTime() >= System.currentTimeMillis()) {
                     // 安排上架
                     service.launchProducts();
                     // 安排下架

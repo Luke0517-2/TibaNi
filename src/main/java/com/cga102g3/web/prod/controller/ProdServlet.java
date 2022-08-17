@@ -1,5 +1,20 @@
 package com.cga102g3.web.prod.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 /**
  * @description: TODO
  * @author: Luke
@@ -15,19 +30,10 @@ import com.cga102g3.web.prod.entity.CarObj;
 import com.cga102g3.web.prod.entity.ProdVO;
 import com.cga102g3.web.prod.service.ProdService;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import org.hibernate.Session;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
 
 @WebServlet(urlPatterns = {"/ProdServlet.do"})
 public class ProdServlet extends HttpServlet {
@@ -59,7 +65,7 @@ public class ProdServlet extends HttpServlet {
 
         if ("getOne_For_Display".equals(action)) {
             String prodID = request.getParameter("prodID");
-            if (!(prodID == null)) {
+            if (prodID != null) {
                 ProdService service = new ProdService();
                 ProdVO prodVO = service.getOne(Integer.parseInt(prodID));
                 request.setAttribute("prodID", prodVO);
@@ -212,7 +218,7 @@ public class ProdServlet extends HttpServlet {
             int total = 0;
             for (CarObj obj : list) {
                 String discount = obj.getDiscount();
-                if (discount == "N") total += obj.getPrice() * obj.getAmount();
+                if ("N".equals(discount)) total += obj.getPrice() * obj.getAmount();
                 else total += obj.getSalePrice() * obj.getAmount();
             }
             PrintWriter out = response.getWriter();
@@ -342,7 +348,7 @@ public class ProdServlet extends HttpServlet {
 
         /** Display book categories **/
         if ("get_Category".equals(action)) {
-            String categoryID = request.getParameter("categoryID");
+//            String categoryID = request.getParameter("categoryID");
             CategoryServiceImpl service = new CategoryServiceImpl();
             List<Map<String, Object>> list = service.getALL();
             response.setContentType("application/json; charset=UTF-8");

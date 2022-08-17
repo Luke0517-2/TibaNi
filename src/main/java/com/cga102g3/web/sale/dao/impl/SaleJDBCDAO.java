@@ -1,17 +1,22 @@
 package com.cga102g3.web.sale.dao.impl;
 
-import java.util.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.cga102g3.core.util.JDBCUtil;
 import com.cga102g3.web.category.entity.Category;
 import com.cga102g3.web.prod_sale.dao.impl.ProdSaleJDBCDAO;
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
-import com.cga102g3.web.sale.dao.SaleDAO_interface;
+import com.cga102g3.web.sale.dao.SaleDAOInterface;
 import com.cga102g3.web.sale.entity.SaleVO;
 
-import java.sql.*;
-
-public class SaleJDBCDAO implements SaleDAO_interface {
+public class SaleJDBCDAO implements SaleDAOInterface {
     String driver = "com.mysql.cj.jdbc.Driver";
     String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
     String userid = "root";
@@ -342,7 +347,7 @@ public class SaleJDBCDAO implements SaleDAO_interface {
      * @date: 2022/06/29 14:03:56
      */
     @Override
-    public boolean judge1(java.sql.Date saleStart) {
+    public boolean judge1(Date saleStart) {
         boolean x = true;   //true可以新增 false區間已存在
         final String sql = "select *\n" +
                 "from sale\n" +
@@ -373,7 +378,7 @@ public class SaleJDBCDAO implements SaleDAO_interface {
      * @date: 2022/06/29 14:03:56
      */
     @Override
-    public boolean judge2(java.sql.Date saleStart, java.sql.Date saleEnd) {
+    public boolean judge2(Date saleStart, Date saleEnd) {
         boolean x = true;  //true可以新增 false區間已存在
         String sql = "select *\n" +
                 "from sale\n" +
@@ -434,40 +439,4 @@ public class SaleJDBCDAO implements SaleDAO_interface {
         return list;
     }
 
-
-    public static void main(String[] args) {
-
-        SaleJDBCDAO dao = new SaleJDBCDAO();
-
-        // �s�W
-//			SaleVO saleVO1 = new SaleVO();
-//			saleVO1.setSaleStart(java.sql.Date.valueOf("2022-06-06"));
-//			saleVO1.setSaleEnd(java.sql.Date.valueOf("2022-07-07"));
-//			dao.insert(saleVO1);
-
-//			// �ק�
-//			SaleVO saleVO2 = new SaleVO();
-//			saleVO2.setSaleStart(java.sql.Date.valueOf("2022-07-06"));
-//			saleVO2.setSaleEnd(java.sql.Date.valueOf("2022-07-26"));
-//			saleVO2.setSaleID(5);
-//			dao.update(saleVO2);
-
-        // �R��
-//			dao.delete(5);
-
-        // PK�d��
-//			SaleVO saleVO3 = dao.findByPrimaryKey(1);
-//			System.out.println("SaleID: " + saleVO3.getSaleID() + ", ");
-//			System.out.println("�_�l��: " + saleVO3.getSaleStart() + ", ");
-//			System.out.println("������: " + saleVO3.getSaleEnd() + ".");
-
-        // �d��ALL
-        List<SaleVO> list = dao.getAll();
-        for (SaleVO aSale : list) {
-            System.out.print("SaleID: " + aSale.getSaleID() + ", ");
-            System.out.print("�_�l��: " + aSale.getSaleStart() + ", ");
-            System.out.print("������: " + aSale.getSaleEnd() + ".");
-            System.out.println();
-        }
-    }
 }

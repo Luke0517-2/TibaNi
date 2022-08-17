@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuthJDBCDAO implements AuthDAO_interface{
+public class AuthJDBCDAO implements AuthDAOInterface{
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";
@@ -209,37 +209,5 @@ public class AuthJDBCDAO implements AuthDAO_interface{
 		}
 		return list;	
 	}
-	public static void main(String[] args) {
-		AuthJDBCDAO dao = new AuthJDBCDAO();
-
-		// �s�W
-//	AuthVO authVO1 = new AuthVO();
-//	authVO1.setAuthName("wwwwwww");
-//	dao.insert(authVO1);
-
-		// �ק� NG
-
-//		AuthVO authVO2 = new AuthVO();
-//		authVO2.setAuthName("wwwww22");
-//		authVO2.setAuthID(3);
-//		dao.update(authVO2);
-
-//	// �R��
-
-//	dao.delete(3);
-
-		// findPrimaryKey
-//	AuthVO authVO3 = dao.findByPrimaryKey(1);
-//	System.out.println("Auth_id: " + authVO3.getAuthID() + ",");
-//	System.out.println("Auth_name: " + authVO3.getAuthName() + ",");
-//	System.out.println("---------------------");
-
-		// list����
-//		List<AuthVO> list = dao.getAll();
-//		for (AuthVO auth : list) {
-//			System.out.println("Auth_id: " + auth.getAuthID() + ",");
-//			System.out.println("Auth_name: " + auth.getAuthName() + ",");
-//			System.out.println("---------------------");
-//		}
-	}
+	
 }

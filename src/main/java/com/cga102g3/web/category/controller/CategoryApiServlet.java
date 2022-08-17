@@ -29,8 +29,5 @@ public class CategoryApiServlet extends HttpServlet {
         writePojo2Json(response, service.getAll());
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
 }

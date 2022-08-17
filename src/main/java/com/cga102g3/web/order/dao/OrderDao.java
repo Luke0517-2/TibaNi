@@ -14,7 +14,6 @@ import java.util.Map;
 public interface OrderDao {
     public void insertWithOrderItem(OrderVO orderVO , List<OrderItemVO> list);
     
-    public void update(OrderVO orderVO);
     /**使用訂單編號查詢訂單**/
     public OrderVO findByPrimaryKey(Integer orderID);
     /**找相同會員訂單**/

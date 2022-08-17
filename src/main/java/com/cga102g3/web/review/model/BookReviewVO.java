@@ -12,8 +12,7 @@ public class BookReviewVO implements Serializable {
 	private Timestamp reviewTime;
 	private Integer reviewStatus;
 	
-	public BookReviewVO() {	
-	}
+
 
 	public Integer getReviewID() {
 		return reviewID;

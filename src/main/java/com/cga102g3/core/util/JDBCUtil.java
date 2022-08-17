@@ -16,7 +16,6 @@ public class JDBCUtil {
     private static DataSource ds;
     private static final Boolean  isConnectionPool = false;
 
-    private JDBCUtil(){}
     private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("jdbc");
 
     private static final String DRIVERCLASS = BUNDLE.getString("driver");
@@ -46,6 +45,7 @@ public class JDBCUtil {
 
     }
 
+    private JDBCUtil(){}
     /**
      * 獲取數據庫連接物件
      * @return conn 數據庫連接物件

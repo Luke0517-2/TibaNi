@@ -2,7 +2,7 @@ package com.cga102g3.web.note.model;
 
 import java.util.*;
 
-public interface NoteDAO_interface {
+public interface NoteDAOInterface {
           public void insert(NoteVO noteVO);
           public void update(NoteVO noteVO);
           public void delete(Integer noteno);

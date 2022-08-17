@@ -3,7 +3,7 @@ package com.cga102g3.web.faq2.model;
 import java.util.*;
 import java.sql.*;
 
-public class FaqJDBCDAO implements FaqDAO_interface {
+public class FaqJDBCDAO implements FaqDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";
@@ -82,7 +82,7 @@ public class FaqJDBCDAO implements FaqDAO_interface {
 			
 			pstmt.setString(1, faqVO.getQues());
 			pstmt.setString(2, faqVO.getAns());
-			pstmt.setInt(3, faqVO.getFAQ_ID()); //�Ĥ@��PK
+			pstmt.setInt(3, faqVO.getFAQID()); //�Ĥ@��PK
 
 			pstmt.executeUpdate();
 
@@ -277,42 +277,5 @@ public class FaqJDBCDAO implements FaqDAO_interface {
 			}
 		}
 		return list;
-	}
-
-	public static void main(String[] args) {
-
-		FaqJDBCDAO dao = new FaqJDBCDAO();
-
-		// �s�W
-//		FaqVO faqVO1 = new FaqVO();
-//		faqVO1.setQues("�`�����D6");
-//		faqVO1.setAns("����6");
-//		dao.insert(faqVO1);
-
-		// �ק�
-//		FaqVO faqVO2 = new FaqVO();
-//		faqVO2.setFAQ_ID(1);
-//		faqVO2.setQues("�`�����D8");
-//		faqVO2.setAns("����8");
-//		dao.update(faqVO2);
-
-		// �R��
-//		dao.delete(8);
-
-		// �d��
-//		FaqVO faqVO3 = dao.findByPrimaryKey(1);
-//		System.out.print(faqVO3.getFAQ_ID() + ",");
-//		System.out.print(faqVO3.getQues() + ",");
-//		System.out.print(faqVO3.getAns() + ",");
-//		System.out.println("---------------------");
-
-		// �d��
-		List<FaqVO> list = dao.getAll();
-		for (FaqVO aFaq : list) {
-			System.out.print(aFaq.getFAQ_ID() + ",");
-			System.out.print(aFaq.getQues() + ",");
-			System.out.print(aFaq.getAns() + ",");
-			System.out.println();
-		}
 	}
 }

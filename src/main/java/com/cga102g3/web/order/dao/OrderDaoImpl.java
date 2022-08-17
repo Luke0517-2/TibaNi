@@ -1,16 +1,6 @@
 package com.cga102g3.web.order.dao;
 
-import com.cga102g3.core.util.JDBCUtil;
-import com.cga102g3.web.bid_activ.dao.MemberDao;
-import com.cga102g3.web.bid_activ.dao.impl.MemberDaoImpl;
-import com.cga102g3.web.book.entity.Book;
-import com.cga102g3.web.order.entity.OrderVO;
-import com.cga102g3.web.order_Item.dao.OrderItemDao;
-import com.cga102g3.web.order_Item.dao.OrderItemDaoImpl;
-import com.cga102g3.web.order_Item.entity.OrderItemVO;
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.cga102g3.core.util.JDBCUtil;
+import com.cga102g3.web.bid_activ.dao.MemberDao;
+import com.cga102g3.web.bid_activ.dao.impl.MemberDaoImpl;
+import com.cga102g3.web.order.entity.OrderVO;
+import com.cga102g3.web.order_Item.dao.OrderItemDaoImpl;
+import com.cga102g3.web.order_Item.entity.OrderItemVO;
 
 /**
  * @description: TODO
@@ -32,7 +29,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int rowCount = 0;  //影響資料筆數
+//        int rowCount = 0;  //影響資料筆數
         int orderID = -1;  //自增主鍵
 
         final String sql = "INSERT INTO `bookstore`.`order` (`mbr_ID`, `total_price`, `order_status`, `ship_status`, `pay_status`, `pay_method`) \n" +
@@ -88,9 +85,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    @Override
-    public void update(OrderVO orderVO) {
-    }
+   
 
     @Override
     public OrderVO findByPrimaryKey(Integer orderID) {
@@ -191,7 +186,8 @@ public class OrderDaoImpl implements OrderDao {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-
+        OrderVO order = null;
+        
         final String sql = "select o.mbr_id,o.order_date,o.total_price,o.order_status,o.ship_status,o.pay_status,o.pay_method,oi.prod_id,oi.amount,oi.sale_price \n"
                 + "from `order` o \n"
                 + "join order_item oi \n"
@@ -208,8 +204,8 @@ public class OrderDaoImpl implements OrderDao {
             ps.setInt(1, orderID);
             rs = ps.executeQuery();
 
-            rs.next();
-            OrderVO order = new OrderVO();
+            if(rs.next()) {
+            order = new OrderVO();
             OrderItemVO orderitem = new OrderItemVO();
             order.setMbrID(rs.getInt("mbr_id"));
             order.setOrderDate(rs.getTimestamp("order_date"));
@@ -223,7 +219,7 @@ public class OrderDaoImpl implements OrderDao {
             orderitem.setProdID(rs.getInt("prod_id"));
             orderitem.setAmount(rs.getInt("amount"));
             orderitem.setSalePrice(rs.getInt("sale_price"));
-
+            }
             rs.close();
             return order;
         } catch (SQLException e) {

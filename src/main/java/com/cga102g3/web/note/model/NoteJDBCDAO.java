@@ -1,9 +1,14 @@
 package com.cga102g3.web.note.model;
 
-import java.util.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class NoteJDBCDAO implements NoteDAO_interface {
+public class NoteJDBCDAO implements NoteDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";
@@ -33,9 +38,9 @@ public class NoteJDBCDAO implements NoteDAO_interface {
 			pstmt = con.prepareStatement(INSERT_STMT);
 
 			
-			pstmt.setInt(1, noteVO.getMbr_ID());
-			pstmt.setInt(2, noteVO.getNote_content_type());
-			pstmt.setString(3, noteVO.getNote_content());
+			pstmt.setInt(1, noteVO.getMbrID());
+			pstmt.setInt(2, noteVO.getNoteContentType());
+			pstmt.setString(3, noteVO.getNoteContent());
 
 
 			pstmt.executeUpdate();
@@ -81,11 +86,11 @@ public class NoteJDBCDAO implements NoteDAO_interface {
 			pstmt = con.prepareStatement(UPDATE);
 
 			
-			pstmt.setInt(1, noteVO.getMbr_ID());
-			pstmt.setTimestamp(2, noteVO.getNote_time());
-			pstmt.setInt(3, noteVO.getNote_content_type());
-			pstmt.setString(4, noteVO.getNote_content());
-			pstmt.setInt(5, noteVO.getNote_ID()); //�Ĥ@��PK
+			pstmt.setInt(1, noteVO.getMbrID());
+			pstmt.setTimestamp(2, noteVO.getNoteTime());
+			pstmt.setInt(3, noteVO.getNoteContentType());
+			pstmt.setString(4, noteVO.getNoteContent());
+			pstmt.setInt(5, noteVO.getNoteID()); //�Ĥ@��PK
 
 			pstmt.executeUpdate();
 
@@ -182,11 +187,11 @@ public class NoteJDBCDAO implements NoteDAO_interface {
 			while (rs.next()) {
 				// noteVo �]�٬� Domain objects
 				noteVO = new NoteVO();
-				noteVO.setNote_ID(rs.getInt("Note_ID"));
-				noteVO.setMbr_ID(rs.getInt("Mbr_ID"));
-				noteVO.setNote_time(rs.getTimestamp("Note_time"));
-				noteVO.setNote_content_type(rs.getInt("Note_content_type"));
-				noteVO.setNote_content(rs.getString("Note_content"));
+				noteVO.setNoteID(rs.getInt("Note_ID"));
+				noteVO.setMbrID(rs.getInt("Mbr_ID"));
+				noteVO.setNoteTime(rs.getTimestamp("Note_time"));
+				noteVO.setNoteContentType(rs.getInt("Note_content_type"));
+				noteVO.setNoteContent(rs.getString("Note_content"));
 			}
 
 			// Handle any driver errors
@@ -243,11 +248,11 @@ public class NoteJDBCDAO implements NoteDAO_interface {
 			while (rs.next()) {
 				// noteVO �]�٬� Domain objects
 				noteVO = new NoteVO();
-				noteVO.setNote_ID(rs.getInt("Note_ID"));
-				noteVO.setMbr_ID(rs.getInt("Mbr_ID"));
-				noteVO.setNote_time(rs.getTimestamp("Note_time"));
-				noteVO.setNote_content_type(rs.getInt("Note_content_type"));
-				noteVO.setNote_content(rs.getString("Note_content"));
+				noteVO.setNoteID(rs.getInt("Note_ID"));
+				noteVO.setMbrID(rs.getInt("Mbr_ID"));
+				noteVO.setNoteTime(rs.getTimestamp("Note_time"));
+				noteVO.setNoteContentType(rs.getInt("Note_content_type"));
+				noteVO.setNoteContent(rs.getString("Note_content"));
 				list.add(noteVO); // Store the row in the list
 			}
 
@@ -286,48 +291,5 @@ public class NoteJDBCDAO implements NoteDAO_interface {
 		return list;
 	}
 
-	public static void main(String[] args) {
-
-		NoteJDBCDAO dao = new NoteJDBCDAO();
-
-		// �s�W
-//		NoteVO noteVO1 = new NoteVO();
-//		noteVO1.setMbr_ID(1);
-//		noteVO1.setNote_content_type(0);
-//		noteVO1.setNote_content("�q�����e2");
-//		dao.insert(noteVO1);
-
-		// �ק�
-		NoteVO noteVO2 = new NoteVO();
-		noteVO2.setMbr_ID(2);
-		noteVO2.setNote_time(new Timestamp(System.currentTimeMillis()));		
-		noteVO2.setNote_content_type(2);
-		noteVO2.setNote_content("通知內容222");
-		noteVO2.setNote_ID(21);
-		dao.update(noteVO2);
-
-		// �R��
-//		dao.delete(1);
-
-		// �d��
-//		NoteVO noteVO3 = dao.findByPrimaryKey(5);
-//		System.out.print(noteVO3.getNote_ID() + ",");
-//		System.out.print(noteVO3.getMbr_ID() + ",");
-//		System.out.print(noteVO3.getNote_time() + ",");
-//		System.out.print(noteVO3.getNote_content_type() + ",");
-//		System.out.print(noteVO3.getNote_content() + ",");
-//		
-//		System.out.println("---------------------");
-
-		// �d��
-//		List<NoteVO> list = dao.getAll();
-//		for (NoteVO aNote : list) {
-//			System.out.print(aNote.getNote_ID() + ",");
-//			System.out.print(aNote.getMbr_ID() + ",");
-//			System.out.print(aNote.getNote_time() + ",");
-//			System.out.print(aNote.getNote_content_type() + ",");
-//			System.out.print(aNote.getNote_content() + ",");
-//			System.out.println();
-//		}
-	}
+	
 }

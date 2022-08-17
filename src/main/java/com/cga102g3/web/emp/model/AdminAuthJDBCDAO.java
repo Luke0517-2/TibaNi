@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminAuthJDBCDAO implements AdminAuthDAO_interface {
+public class AdminAuthJDBCDAO implements AdminAuthDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";
 	String passwd = "abc123";
 
 	private static final String INSERT_STMT = "INSERT INTO admin_auth (admin_id, auth_id) VALUES (?, ?)";
-	private static final String GET_ALL_STMT = "SELECT * FROM admin_auth order by admin_ID";
+//	private static final String GET_ALL_STMT = "SELECT * FROM admin_auth order by admin_ID";
 	private static final String GET_ONE_STMT = "SELECT auth_id FROM admin_auth where admin_ID = ?";
 	private static final String DELETE = "DELETE FROM admin_auth where admin_ID = ?";
-	private static final String UPDATE = "UPDATE admin_auth set admin_id =?, auth_id =? where admin_ID = ?";
+//	private static final String UPDATE = "UPDATE admin_auth set admin_id =?, auth_id =? where admin_ID = ?";
 
 	@Override
 	public void insert(AdminAuthVO adminAuthVO) {

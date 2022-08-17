@@ -13,8 +13,7 @@ import javax.servlet.annotation.*;
 
 public class ResourceListener implements ServletContextListener {
 
-    public ResourceListener() {
-    }
+   
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

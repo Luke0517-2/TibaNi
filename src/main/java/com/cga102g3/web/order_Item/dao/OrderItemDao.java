@@ -11,7 +11,7 @@ import java.util.Map;
  * @date: 2022/6/24
  **/
 public interface OrderItemDao {
-    public void insert(OrderItemVO orderItemVO);
+    
 
     /**使用訂單編號查詢明細**/
     public List<OrderItemVO> getAll(Integer orderID);

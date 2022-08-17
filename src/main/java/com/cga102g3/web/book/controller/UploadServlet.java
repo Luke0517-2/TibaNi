@@ -45,9 +45,9 @@ public class UploadServlet extends HttpServlet {
 
             if (filename!= null && part.getContentType()!=null) {
 
-                String name = part.getName();
-                String ContentType = part.getContentType();  // 不要用來作為檔案上傳類型判斷，改副檔名，chrome傻傻放行
-                long size = part.getSize();
+//                String name = part.getName();
+//                String ContentType = part.getContentType();  // 不要用來作為檔案上傳類型判斷，改副檔名，chrome傻傻放行
+//                long size = part.getSize();
                 File f = new File(fsaveDirectory, filename);
 
                 // 利用File物件,寫入目地目錄,上傳成功

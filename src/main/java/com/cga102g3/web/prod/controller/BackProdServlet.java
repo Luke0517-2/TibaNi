@@ -1,15 +1,17 @@
 package com.cga102g3.web.prod.controller;
 
-import java.io.*;
-import java.util.Collection;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.cga102g3.web.prod.entity.ProdVO;
 import com.cga102g3.web.prod.service.ProdService;

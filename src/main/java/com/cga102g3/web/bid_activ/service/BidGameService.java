@@ -1,14 +1,12 @@
 package com.cga102g3.web.bid_activ.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.cga102g3.web.bid_activ.entity.BidActiv;
 import com.cga102g3.web.bid_activ.entity.BidActivityStat;
 import com.cga102g3.web.bid_activ.entity.BidErrStat;
 import com.cga102g3.web.bid_activ.entity.Bidder;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @Description

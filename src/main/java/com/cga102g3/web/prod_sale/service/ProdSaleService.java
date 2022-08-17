@@ -1,17 +1,16 @@
 package com.cga102g3.web.prod_sale.service;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.cga102g3.web.prod_sale.dao.ProdSaleDAO_interface;
+import com.cga102g3.web.prod_sale.dao.ProdSaleDAOInterface;
 import com.cga102g3.web.prod_sale.dao.impl.ProdSaleJDBCDAO;
 import com.cga102g3.web.prod_sale.entity.ProdSaleVO;
 
 
 public class ProdSaleService {
 	
-	private ProdSaleDAO_interface dao;
+	private ProdSaleDAOInterface dao;
 
 	public ProdSaleService() {
 		dao = new ProdSaleJDBCDAO();

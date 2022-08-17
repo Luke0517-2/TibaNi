@@ -1,5 +1,17 @@
 package com.cga102g3.web.bid_activ.controller;
 
+import static com.cga102g3.core.util.CommonUtil.writePojo2Json;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.cga102g3.core.controller.BaseGetAPIServlet;
 import com.cga102g3.core.pojo.ErrMsg;
 import com.cga102g3.web.bid_activ.entity.BidActiv;
@@ -7,20 +19,6 @@ import com.cga102g3.web.bid_activ.entity.BidErrStat;
 import com.cga102g3.web.bid_activ.entity.Bidder;
 import com.cga102g3.web.bid_activ.service.BidGameService;
 import com.cga102g3.web.bid_activ.service.impl.BidGameServiceImpl;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
-
-import static com.cga102g3.core.util.CommonUtil.writePojo2Json;
 
 /**
  * @Description

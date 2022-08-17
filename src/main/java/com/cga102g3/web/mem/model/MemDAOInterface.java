@@ -4,7 +4,7 @@ import java.util.*;
 
 
 
-public interface MemDAO_interface {
+public interface MemDAOInterface {
 	public void signup(MemVO memVO);
 	public void insert(MemVO memVO);
     public void update(MemVO memVO); 

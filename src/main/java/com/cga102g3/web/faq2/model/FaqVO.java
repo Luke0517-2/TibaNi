@@ -1,15 +1,14 @@
 package com.cga102g3.web.faq2.model;
-import java.sql.Date;
 
 public class FaqVO implements java.io.Serializable{
-	private Integer FAQ_ID;
+	private Integer FAQID;
 	private String ques;
 	private String ans;
-	public Integer getFAQ_ID() {
-		return FAQ_ID;
+	public Integer getFAQID() {
+		return FAQID;
 	}
-	public void setFAQ_ID(Integer fAQ_ID) {
-		FAQ_ID = fAQ_ID;
+	public void setFAQ_ID(Integer fAQID) {
+		FAQID = fAQID;
 	}
 	public String getQues() {
 		return ques;

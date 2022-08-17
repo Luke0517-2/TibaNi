@@ -6,15 +6,15 @@ import javax.servlet.http.*;
 
 public class loginFilter implements Filter {
 
-    private FilterConfig config;
-
-    public void init(FilterConfig config) {
-        this.config = config;
-    }
-
-    public void destroy() {
-        config = null;
-    }
+//    private FilterConfig config;
+//
+//    public void init(FilterConfig config) {
+//        this.config = config;
+//    }
+//
+//    public void destroy() {
+//        config = null;
+//    }
 
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain) throws ServletException, IOException {

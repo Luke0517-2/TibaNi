@@ -36,22 +36,15 @@ public class FaqServlet extends HttpServlet {
 
 				/***************************1.接收請求參數 - 輸入格式的錯誤處理**********************/
 				String str = req.getParameter("FAQ_ID");
+				Integer faqID = null;
 				if (str == null || (str.trim()).length() == 0) {
 					errorMsgs.add("請輸入FAQ編號");
-				}
-				// Send the use back to the form, if there were errors
-				if (!errorMsgs.isEmpty()) {
-					RequestDispatcher failureView = req
-							.getRequestDispatcher("/back-end/faq/select_page.jsp");
-					failureView.forward(req, res);
-					return;//程式中斷
-				}
-				
-				Integer faq_ID = null;
-				try {
-					faq_ID = Integer.valueOf(str);
-				} catch (Exception e) {
-					errorMsgs.add("FAQ編號格式不正確");
+				}else {
+					try {
+						faqID = Integer.valueOf(str);
+					} catch (Exception e) {
+						errorMsgs.add("FAQ編號格式不正確");
+					}
 				}
 				// Send the use back to the form, if there were errors
 				if (!errorMsgs.isEmpty()) {
@@ -63,7 +56,7 @@ public class FaqServlet extends HttpServlet {
 				
 				/***************************2.開始查詢資料*****************************************/
 				FaqService faqSvc = new FaqService();
-				FaqVO faqVO = faqSvc.getOneFaq(faq_ID);
+				FaqVO faqVO = faqSvc.getOneFaq(faqID);
 				if (faqVO == null) {
 					errorMsgs.add("查無資料，請輸入編號");
 				}

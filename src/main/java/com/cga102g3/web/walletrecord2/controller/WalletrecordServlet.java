@@ -23,7 +23,7 @@ public class WalletrecordServlet extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 		String action = req.getParameter("action");
-		String action2 = req.getParameter("action2");
+//		String action2 = req.getParameter("action2");
 		
 		
 		

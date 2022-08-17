@@ -375,11 +375,11 @@ public class BidProdServlet extends HttpServlet {
 					directPrice = Integer.valueOf(directPricestr);
 					if (directPrice < 1)
 						errorMsgs.put("bidDirectPrice", "競標直購價不得低於1元");
-					if (startPrice != null) {
-						if (startPrice >= directPrice) {
+					if (startPrice != null && startPrice >= directPrice) {
+						
 							errorMsgs.put("startPrice", "直購價須高於競標底價，請重新輸入");
 							errorMsgs.put("bidDirectPrice", "直購價須高於競標底價，請重新輸入");
-					  }
+					  
 					}
 				} catch (NumberFormatException e) {
 					e.printStackTrace();

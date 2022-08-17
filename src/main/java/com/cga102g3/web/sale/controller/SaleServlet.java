@@ -60,7 +60,7 @@ public class SaleServlet extends HttpServlet {
         //=====================查詢ProdSaleVO明細===============
         if ("getDetail".equals(action)) {
             String saleID = request.getParameter("saleID");
-            if (saleID != null || saleID.trim().length() != 0){
+            if (saleID != null && saleID.trim().length() != 0){
                 ProdSaleService svc = new ProdSaleService();
                 List<Map<String, Object>>  list = svc.getBySaleID(Integer.valueOf(saleID));
                 Gson gson = new Gson();

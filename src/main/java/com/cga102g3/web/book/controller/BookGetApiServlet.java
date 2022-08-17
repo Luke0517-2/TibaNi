@@ -85,7 +85,7 @@ public class BookGetApiServlet extends BaseGetAPIServlet {
 
 //        response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=UTF-8");
-        PrintWriter out = response.getWriter();
+//        PrintWriter out = response.getWriter();
         if (ISBN == null || bookID == null) {
             ErrMsg errMsg = new ErrMsg();
             errMsg.setMsg("未傳輸入isbn參數");

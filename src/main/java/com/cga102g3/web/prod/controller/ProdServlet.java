@@ -79,7 +79,7 @@ public class ProdServlet extends HttpServlet {
 
         if ("checkSale".equals(action)) {
             String prodID = request.getParameter("prodID");
-            if (!(prodID == null)) {
+            if (prodID != null) {
                 ProdService service = new ProdService();
                 Integer salePrice = service.forDetail(Integer.valueOf(prodID));
                 PrintWriter out = response.getWriter();

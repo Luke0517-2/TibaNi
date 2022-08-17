@@ -22,13 +22,13 @@ public class MemberForgetPWDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final Gson gson = new GsonBuilder().create(); 
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberForgetPWDServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+//    /**
+//     * @see HttpServlet#HttpServlet()
+//     */
+//    public MemberForgetPWDServlet() {
+//        super();
+//        // TODO Auto-generated constructor stub
+//    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

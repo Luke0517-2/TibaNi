@@ -4,7 +4,7 @@ import java.util.List;
 
 public class WalletrecordService {
 
-	private WalletrecordDAO_interface dao;
+	private WalletrecordDAOInterface dao;
 
 	public WalletrecordService() {
 		dao = new WalletrecordJDBCDAO();

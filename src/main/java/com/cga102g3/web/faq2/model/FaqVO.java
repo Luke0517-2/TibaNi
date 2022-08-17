@@ -7,7 +7,7 @@ public class FaqVO implements java.io.Serializable{
 	public Integer getFAQID() {
 		return FAQID;
 	}
-	public void setFAQ_ID(Integer fAQID) {
+	public void setFAQID(Integer fAQID) {
 		FAQID = fAQID;
 	}
 	public String getQues() {

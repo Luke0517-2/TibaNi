@@ -3,7 +3,7 @@ package com.cga102g3.web.walletrecord2.model;
 import java.util.*;
 import java.sql.*;
 
-public class WalletrecordJDBCDAO implements WalletrecordDAO_interface {
+public class WalletrecordJDBCDAO implements WalletrecordDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/bookstore?serverTimezone=Asia/Taipei";
 	String userid = "root";

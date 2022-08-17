@@ -179,7 +179,7 @@ public class FaqJDBCDAO implements FaqDAOInterface {
 			while (rs.next()) {
 				// empVo �]�٬� Domain objects
 				faqVO = new FaqVO();
-				faqVO.setFAQ_ID(rs.getInt("FAQ_ID"));
+				faqVO.setFAQID(rs.getInt("FAQ_ID"));
 				faqVO.setQues(rs.getString("Ques"));
 				faqVO.setAns(rs.getString("Ans"));
 			}
@@ -238,7 +238,7 @@ public class FaqJDBCDAO implements FaqDAOInterface {
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
 				faqVO = new FaqVO();
-				faqVO.setFAQ_ID(rs.getInt("FAQ_ID"));
+				faqVO.setFAQID(rs.getInt("FAQ_ID"));
 				faqVO.setQues(rs.getString("Ques"));
 				faqVO.setAns(rs.getString("Ans"));
 				list.add(faqVO); // Store the row in the list
@@ -278,4 +278,6 @@ public class FaqJDBCDAO implements FaqDAOInterface {
 		}
 		return list;
 	}
+
+
 }

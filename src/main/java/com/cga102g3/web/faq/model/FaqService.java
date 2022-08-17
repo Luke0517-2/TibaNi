@@ -29,7 +29,7 @@ public class FaqService {
 
 		faqVO.setQues(ques);
 		faqVO.setAns(ans);
-		faqVO.setFAQ_ID(fAQ_ID);
+		faqVO.setFAQID(fAQ_ID);
 		
 		dao.update(faqVO);
 

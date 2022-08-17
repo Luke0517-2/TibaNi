@@ -1,8 +1,8 @@
-package com.cga102g3.web.walletrecord2.model;
+package com.cga102g3.web.walletrecord.model;
 
 import java.util.*;
 
-public interface WalletrecordDAO_interface {
+public interface WalletrecordDAOInterface {
           public void insert(WalletrecordVO empVO);
           public void update(WalletrecordVO empVO);
           public void delete(Integer empno);
